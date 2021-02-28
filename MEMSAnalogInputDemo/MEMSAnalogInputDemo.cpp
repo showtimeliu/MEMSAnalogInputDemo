@@ -5,8 +5,8 @@
 #include <algorithm>
 #include "MTIDevice.h"
 #include "MTISwitchOS.h"
-// #include <OpenCV/highgui.h>
-// #include <OpenCV/cv.h>
+#include <highgui.h>
+#include <cv.h>
 
 int scanInt() {
 	// Input function to handle user input across the MTIDevice-Demo
@@ -58,6 +58,18 @@ int main() {
 
 	char* portName = SelectIODevice(mti);	// Function to check COM ports for available devices and ask user to select one.
 	//sprintf(portName,"COM3");
+
+	if (portName == NULL) return 0;					// Leave the demo if no devices were found or chosen.
+
+	mti->ConnectDevice(portName);					// Make a serial connection to the selected com port by name (e.g. "COM3").
+	MTIError lastError = mti->GetLastError();		// Check for errors at any time. We check here to see if successfully connected.
+	if (lastError != MTIError::MTI_SUCCESS)
+	{
+		printf("\n\nUnable to connect with any device at port %s.  Press any key to Exit.\n", portName);
+		mti->SendSerialReset();
+		_getch();
+		return 0;										// Leave demo if not successfully connected
+	}
 
 
 

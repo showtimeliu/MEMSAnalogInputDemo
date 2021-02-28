@@ -85,14 +85,17 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>
+      </SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Codes\MEMS analog input demo\MEMSAnalogInputDemo\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\include;.\include\opencv;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories> .\lib\x86; .\lib\opencv\x86;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MTIDevice_d.lib;opencv_core2411d.lib;opencv_highgui2411d.lib;opencv_imgproc2411d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,13 +146,13 @@
     <ClCompile Include="MEMSAnalogInputDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\DspFilter.h" />
-    <ClInclude Include="..\include\enumCOMs.h" />
-    <ClInclude Include="..\include\MTIDataGenerator.h" />
-    <ClInclude Include="..\include\MTIDefinitions.h" />
-    <ClInclude Include="..\include\MTIDevice.h" />
-    <ClInclude Include="..\include\MTISerial.h" />
-    <ClInclude Include="..\include\MTISwitchOS.h" />
+    <ClInclude Include="include\DspFilter.h" />
+    <ClInclude Include="include\enumCOMs.h" />
+    <ClInclude Include="include\MTIDataGenerator.h" />
+    <ClInclude Include="include\MTIDefinitions.h" />
+    <ClInclude Include="include\MTIDevice.h" />
+    <ClInclude Include="include\MTISerial.h" />
+    <ClInclude Include="include\MTISwitchOS.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

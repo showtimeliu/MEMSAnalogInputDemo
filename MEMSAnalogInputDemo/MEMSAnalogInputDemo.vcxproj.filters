@@ -20,25 +20,25 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\MTIDevice.h">
+    <ClInclude Include="include\DspFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\MTISwitchOS.h">
+    <ClInclude Include="include\enumCOMs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\DspFilter.h">
+    <ClInclude Include="include\MTIDataGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\enumCOMs.h">
+    <ClInclude Include="include\MTIDefinitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\MTIDataGenerator.h">
+    <ClInclude Include="include\MTIDevice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\MTIDefinitions.h">
+    <ClInclude Include="include\MTISerial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\MTISerial.h">
+    <ClInclude Include="include\MTISwitchOS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
