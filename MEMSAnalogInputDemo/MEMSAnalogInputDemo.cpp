@@ -8,6 +8,18 @@
 // #include <OpenCV/highgui.h>
 // #include <OpenCV/cv.h>
 
+int scanInt() {
+	// Input function to handle user input across the MTIDevice-Demo
+	char inptr[256], * endptr;
+	fgets(inptr, 256, stdin);					// Get string from stdin and store in inptr
+	int val = strtol(inptr, &endptr, 0);		// Get integer value of inptr string
+	// strtol returns 0 on invalid input but if the pointers are the same then no conversion occurred
+	if (inptr == endptr)
+		return -1;
+	else
+		return val;
+}
+
 // Function to handle user's choice of a device at the beginning of the demo
 // Utilizes MTIDevice::GetAvailableDevices(), MTIDevice::ListAvailableDevices
 char* SelectIODevice(MTIDevice* mti)
@@ -44,7 +56,8 @@ int main() {
 	// attributes, and the target device at its serial port.
 	MTIDevice* mti = new MTIDevice(); 
 
-	char* portName = SelectIODevice(mti); 
+	char* portName = SelectIODevice(mti);	// Function to check COM ports for available devices and ask user to select one.
+	//sprintf(portName,"COM3");
 
 
 
