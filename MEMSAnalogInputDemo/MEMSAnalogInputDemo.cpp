@@ -70,6 +70,8 @@ void AnalogInputValues(MTIDevice* mti)
 	printf("from the device for channels AI0 and AI1.\n");
 	printf("Hit ESC to exit this mode\n");
 
+	int i = 0; 
+
 	while (runFlag)
 	{
 		key = (int)_getch();
@@ -136,11 +138,12 @@ void AnalogInputToOutputDemo(MTIDevice* mti)
 	MTIDeviceParams tParams;
 	mti->GetDeviceParams(&tParams);	// Store new temporary params in tParams
 	// Set the Driver Settings
-	tParams.DataScale = 1.0;
-	tParams.Vbias = 70;
-	tParams.VdifferenceMax = 100;
-	tParams.HardwareFilterBw = 200;
-	tParams.SampleRate = 50000;
+	//tParams.DataScale = 1.0;
+	//tParams.Vbias = 70;
+	//tParams.VdifferenceMax = 100;
+	//tParams.HardwareFilterBw = 200;
+	//tParams.SampleRate = 50000;
+	mti->LoadDeviceParams(&tParams, "mtidevice - S46974.ini");
 	mti->SetDeviceParams(&tParams);
 
 	mti->ResetDevicePosition(); // Reset the device position for safety
@@ -150,6 +153,7 @@ void AnalogInputToOutputDemo(MTIDevice* mti)
 	printf("\nDevice will read analog inputs and convert the signals to MEMS drive voltages\n");
 	printf("Press ANY KEY to set controller into Analog_Input_To_Output DataMode...\n");
 	_getch();
+	
 	mti->StartDataStream();
 
 	// Switch back to Sample_Output DataMode
@@ -209,7 +213,8 @@ int main() {
 			system(CLEARSCREEN);	menuFlag = false; 
 			printf("\n***************** MTIDevice-Demo 10.7 - C++ SDK Examples ********************\n");
 			printf("Demonstrates uses of MTIDevice and MTIDataGenerator classes.\n\n");
-			printf("Device Name: %s     Firmware Name: %s     API version %s\n\n", lparams.DeviceName, lparams.FirmwareName, mti->GetAPIVersion().c_str());
+			//printf("Device Name: %s     Firmware Name: %s     API version %s\n\n", lparams.DeviceName, lparams.FirmwareName, mti->GetAPIVersion().c_str());
+			printf("Device Name: %s     Firmware Name: %s     API version N/A\n\n", lparams.DeviceName, lparams.FirmwareName);
 			printf("** Warning: Users should provide proper Vbias, VdifferenceMax, and\n");
 			printf("** HardwareFilterBw parameters to avoid MEMS Mirror damage.\n\n");
 			printf("General Examples:\n");
